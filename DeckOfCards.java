@@ -2,7 +2,6 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 public class DeckOfCards {
    private Card[] deck; 
@@ -120,7 +119,8 @@ public class DeckOfCards {
       
       if (facesAux.size() == 4) return "UM PAR";
       
-       
-      return "MÃO NORMAL";
+      if (values[0] == 1) return "CARTA ALTA: As";
+      
+      return "CARTA ALTA: " + this.faces[values[4] - 1];
    }
 }
