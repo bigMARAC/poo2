@@ -34,7 +34,10 @@ public class DeckOfCards {
    } 
 
    public Card[][] dealCard(int hands) {
-      Card[][] allHands = new Card[hands][NUMBER_OF_CARDS / hands];
+      while (NUMBER_OF_CARDS / hands < 5) {
+         hands--;
+      }
+      Card[][] allHands = new Card[hands][5];
       
       for (int i = 0; i < allHands.length; i++) {
          for (int j = 0; j < allHands[i].length; j++) {
@@ -62,6 +65,7 @@ public class DeckOfCards {
    public String getCombinations(Card[] hand) {
       String[] faces = Card.getFaces(hand);
       String[] suits = Card.getSuits(hand);
+      
       Map<String, Integer> suitsAux = this.countRepetitions(suits);
       Map<String, Integer> facesAux = this.countRepetitions(faces);
       Map<String, Integer> suitsRealValues = new HashMap<String, Integer>();
@@ -70,7 +74,7 @@ public class DeckOfCards {
          suitsRealValues.put(this.faces[i], i + 1);
       }
       
-      int[] values = new int[5];
+      int[] values = new int[hand.length];
       for (int i = 0; i < values.length; i++) {
          for (int j = 0; j < faces.length; j++) {
             values[j] = suitsRealValues.get(faces[j]);

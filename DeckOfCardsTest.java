@@ -2,7 +2,7 @@ public class DeckOfCardsTest {
    public static void main(String[] args) {
       DeckOfCards myDeckOfCards = new DeckOfCards();
       myDeckOfCards.shuffle();
-      int hands = 10;
+      int hands = 1;
       
       Card[][] cards = myDeckOfCards.dealCard(hands);
       
